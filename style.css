@@ -1,0 +1,78 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+  --display-color: #212121;
+  --primary-color: #d0d1d5;
+  --secondary-color: #c4c5c7;
+  --ternary-color: #f88f10;
+  --primary-text-color: #333333;
+  --secondary-text-color: #ffffff;
+  --tile-size: 75px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: var(--display-color);
+}
+
+.calculator {
+  display: flex;
+  flex-direction: column;
+  border: 1px #fff solid;
+  max-width: calc(4 * var(--tile-size));
+}
+
+.row {
+  display: flex;
+}
+
+.col {
+  flex: 1;
+}
+
+.display {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  color: var(--secondary-text-color);
+  padding: calc(var(--tile-size) / 2) calc(var(--tile-size) / 4);
+  font-size: 1.5em;
+}
+
+.tile {
+  width: var(--tile-size);
+  height: var(--tile-size);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--primary-color);
+  color: var(--primary-text-color);
+  border-bottom: 1px var(--primary-text-color) solid;
+  border-right: 1px var(--primary-text-color) solid;
+}
+
+.row:first-of-type .tile {
+  background-color: var(--secondary-color);
+}
+
+.row:first-of-type .tile:last-child {
+  background-color: var(--ternary-color);
+}
+
+/* Make the 0 tile 2x as big as the other tiles in that row*/
+.row:last-of-type .tile:first-of-type {
+  flex: 1 0 auto;
+}
+
+.tile:last-child {
+  background-color: var(--ternary-color);
+}
